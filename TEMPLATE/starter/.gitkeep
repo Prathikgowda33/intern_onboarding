@@ -1,0 +1,11 @@
+# This folder holds starter code for skeleton / fix-this topics.
+#
+# - For a 'skeleton' topic: add stub files here (empty functions, placeholder
+#   configs, etc.) that the intern fills in.
+# - For a 'fix-this' topic: add the deliberately broken solution here that the
+#   intern repairs.
+# - For a 'scratch' topic: DELETE this folder (and this file). A scratch topic
+#   provides no starter code.
+#
+# This .gitkeep is here only so the empty folder is tracked in git. Replace it
+# with real starter files, or delete the folder entirely for scratch topics.
