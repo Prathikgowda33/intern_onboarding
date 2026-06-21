@@ -1,0 +1,20 @@
+/usr/bin/env bash
+
+LOGFILE=$1
+TOPN=${2:-5}
+
+echo "=== Top $TOPN IPs ==="
+awk '{print $2}' "$LOGFILE" | sort | uniq -c | sort -rn | head -n "$TOPN"
+
+echo
+echo "=== Errors ==="
+echo "4xx errors: $(awk '$NF ~ /^4[0-9][0-9]$/ {c++} END {print c+0}' "$LOGFILE")"
+echo "5xx errors: $(awk '$NF ~ /^5[0-9][0-9]$/ {c++} END {print c+0}' "$LOGFILE")"
+
+echo
+echo "=== Busiest hour ==="
+awk -F'[T:]' '{print $3}' "$LOGFILE" | sort | uniq -c | sort -rn | head -1
+
+echo
+echo "=== Total ==="
+echo "Total requests processed: $(wc -l < "$LOGFILE")"
