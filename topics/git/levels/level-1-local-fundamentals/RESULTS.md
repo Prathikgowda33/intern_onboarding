@@ -6,25 +6,17 @@ Intern fills this in. See [../../../../HOW_IT_WORKS.md](../../../../HOW_IT_WORKS
 
 | Constraint | Result | Evidence (command + what you saw) |
 |------------|--------|-----------------------------------|
-| C1         |        |                                   |
-| C2         |        |                                   |
-| C3         |        |                                   |
-| C4         |        |                                   |
-| C5         |        |                                   |
-| C6         |        |                                   |
-
-- `Result` is `PASS` or `FAIL` only.
-- `Evidence` is specific: paste the command and what it printed. Example: "C2 —
-  `git log --oneline main` → 4 commits, all with descriptive messages."
+| C1 | PASS | ls -R showed README.md, notes.md, summary.md, scripts/hello.sh and .git directory |
+| C2 | PASS | git log --oneline main showed meaningful commits with descriptive messages |
+| C3 | PASS | git log --oneline --all --graph showed branch add-summary diverging and merging back into main |
+| C4 | PASS | Feature branch add-summary had 2 commits before merge |
+| C5 | PASS | git log --oneline --merges main showed merge commit "merge add-summary feature" |
+| C6 | PASS | git log --oneline --graph --all showed clear fork and merge history |
 
 ## Overall
 
-Delete whichever doesn't apply:
-
-- ✅ **CLEARED** — all constraints pass. Git topic complete.
-- ❌ **Not cleared** — constraints above marked FAIL. Reviewing
-  [../../../resources.md](../../../resources.md), will retry and update this file.
+✅ CLEARED — all constraints pass. Git topic complete.
 
 ## Notes (optional)
 
-<Any blockers, assumptions you made, or follow-ups.>
+Completed all required Git branching, commit, and merge workflow steps.
