@@ -1,26 +1,19 @@
 # Results — Level 2 (Advanced SQL)
 
-Record your constraint results here. See [../../../../HOW_IT_WORKS.md](../../../../HOW_IT_WORKS.md)
-for instructions on how to self-report.
-
-For each constraint, run the verification command from [constraints.md](constraints.md), observe
-the result, and record it here.
-
 | Constraint | Result | Evidence (command + what you observed) |
 |------------|--------|--------------------------------------|
-| C1: Two views exist and return data | | |
-| C2: v_task_summary filters correctly | | |
-| C3: At least 2 indexes exist | | |
-| C4: Indexes are used by queries | | |
-| C5: Three-table join correctness | | |
-| C6: Window function ranks correctly | | |
-| C7: Transaction is atomic | | |
+| C1: Two views exist and return data | PASS | sqlite_master showed v_task_summary and v_project_stats; both COUNT queries returned rows |
+| C2: v_task_summary filters correctly | PASS | SELECT DISTINCT status returned only pending and in_progress |
+| C3: At least 2 indexes exist | PASS | idx_tasks_project_id and idx_tasks_status listed in sqlite_master |
+| C4: Indexes are used by queries | PASS | EXPLAIN QUERY PLAN showed USING INDEX idx_tasks_project_id and idx_tasks_status |
+| C5: Three-table join correctness | PASS | Join returned project name, task title and tag from all three tables |
+| C6: Window function ranks correctly | PASS | ROW_NUMBER ranking restarted at 1 for each project and highest priority task had rank 1 |
+| C7: Transaction is atomic | PASS | Failed transaction produced an error and Rollback Test project was not present afterward |
 
 ## Overall
 
-- [ ] **CLEARED** — all constraints pass. Databases topic complete.
-- [ ] **Not cleared** — constraints above marked FAIL. Reviewing [../../../resources.md](../../../resources.md), will retry.
+- [x] CLEARED — all constraints pass. Databases topic complete.
 
 ## Notes (optional)
 
-Anything you want to note for yourself or your reviewer — blockers, assumptions, things you learned.
+Completed views, indexes, multi-table joins, window functions and transaction testing.
