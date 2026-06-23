@@ -1,26 +1,20 @@
 # Results — Level 2 (Mocking & Integration)
 
-Record your constraint results here. See [../../../../HOW_IT_WORKS.md](../../../../HOW_IT_WORKS.md)
-for instructions on how to self-report.
-
-For each constraint, run the verification command from [constraints.md](constraints.md), observe
-the result, and record it here.
-
 | Constraint | Result | Evidence (command + what you observed) |
 |------------|--------|--------------------------------------|
-| C1: All tests pass | | |
-| C2: At least 7 tests | | |
-| C3: unittest.mock.patch used | | |
-| C4: Error handling tested | | |
-| C5: side_effect for multiple returns | | |
-| C6: Integration test exists | | |
-| C7: No real HTTP calls | | |
+| C1: All tests pass | PASS | pytest test_weather_reporter.py -v → 8 passed |
+| C2: At least 7 tests | PASS | pytest test_weather_reporter.py --collect-only → 8 tests collected |
+| C3: unittest.mock.patch used | PASS | grep -n "patch" test_weather_reporter.py → multiple @patch decorators on weather_reporter.requests.get |
+| C4: Error handling tested | PASS | grep showed 404 status test, ValueError test, and Timeout side_effect test |
+| C5: side_effect for multiple returns | PASS | mock_get.side_effect = [ok, bad] and Timeout side_effect used |
+| C6: Integration test exists | PASS | test_integration_pipeline calls get_current_weather() and format_weather_report() together |
+| C7: No real HTTP calls | PASS | All requests.get calls mocked with @patch("weather_reporter.requests.get") |
 
 ## Overall
 
-- [ ] **CLEARED** — all constraints pass. Testing topic complete.
-- [ ] **Not cleared** — constraints above marked FAIL. Reviewing [../../../resources.md](../../../resources.md), will retry.
+- [x] CLEARED — all constraints pass. Testing topic complete.
+- [ ] Not cleared
 
-## Notes (optional)
+## Notes
 
-Anything you want to note for yourself or your reviewer — blockers, assumptions, things you learned.
+Learned unittest.mock.patch, MagicMock, side_effect, mocking external APIs, and integration testing.
