@@ -1,30 +1,21 @@
 # Results — Level 2 (CSV Data Analyzer)
 
-Intern fills this in. See [../../../../HOW_IT_WORKS.md](../../../../HOW_IT_WORKS.md) for the workflow.
-
 ## Constraint results
 
 | Constraint | Result | Evidence (command + what you saw) |
 |------------|--------|-----------------------------------|
-| C1         |        |                                   |
-| C2         |        |                                   |
-| C3         |        |                                   |
-| C4         |        |                                   |
-| C5         |        |                                   |
-| C6         |        |                                   |
-| C7         |        |                                   |
-
-- `Result` is `PASS` or `FAIL` only.
-- `Evidence` is specific: paste the command and what it printed.
+| C1 | PASS | python3 analyze.py starter/employees.csv created report.json |
+| C2 | PASS | Valid JSON with 3 top-level keys |
+| C3 | PASS | Departments present: Engineering, Marketing, Sales, HR, Finance with avg_salary and count |
+| C4 | PASS | total_employees = 20 |
+| C5 | PASS | Department averages matched independent calculation |
+| C6 | PASS | highest_paid = Carol Williams 112000 |
+| C7 | PASS | Malformed rows skipped and total_employees = 2 |
 
 ## Overall
 
-Delete whichever doesn't apply:
+✅ CLEARED — all constraints pass. Python Level 2 complete.
 
-- ✅ **CLEARED** — all constraints pass. Python topic complete.
-- ❌ **Not cleared** — constraints above marked FAIL. Reviewing
-  [../../../resources.md](../../../resources.md), will retry and update this file.
+## Notes
 
-## Notes (optional)
-
-<Any blockers, assumptions you made, or follow-ups.>
+Implemented CSV analyzer and generated valid report.json output.
