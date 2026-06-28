@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guestbook</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Guestbook</h1>
+
+    <div class="entries">
+        {% for entry in entries %}
+        <div class="entry">
+            <h3>{{ entry.name }}</h3>
+            <p>{{ entry.message }}</p>
+            <small>{{ entry.time }}</small>
+        </div>
+        {% else %}
+        <p>No entries yet.</p>
+        {% endfor %}
+    </div>
+
+    <h2>Add a Message</h2>
+
+    <form method="POST">
+        <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+        >
+
+        <textarea
+            name="message"
+            placeholder="Your Message"
+            required
+        ></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>

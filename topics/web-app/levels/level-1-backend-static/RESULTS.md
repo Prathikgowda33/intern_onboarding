@@ -1,26 +1,19 @@
 # Results — Level 1 (Backend + Static HTML)
 
-Record your constraint results here. See [../../../../HOW_IT_WORKS.md](../../../../HOW_IT_WORKS.md)
-for instructions on how to self-report.
-
-For each constraint, start your Flask app (`python3 app.py`), then run the verification command
-from [constraints.md](constraints.md) in a second terminal. Record what you observed.
-
 | Constraint | Result | Evidence (command + what you observed) |
 |------------|--------|--------------------------------------|
-| C1: Home page loads | | |
-| C2: Can submit entry via POST | | |
-| C3: Multiple entries persist | | |
-| C4: File structure correct | | |
-| C5: Jinja2 template syntax | | |
-| C6: Entries show name + message | | |
-| C7: CSS linked and served | | |
+| C1: Home page loads | PASS | GET / returned HTML page with HTTP 200 |
+| C2: Can submit entry via POST | PASS | POST request created guestbook entry successfully |
+| C3: Multiple entries persist | PASS | Alice, Bob and Carol entries displayed together |
+| C4: File structure correct | PASS | app.py, templates/index.html and static/style.css present |
+| C5: Jinja2 template syntax | PASS | Template contains {{ }} and {% %} syntax |
+| C6: Entries show name + message | PASS | Each guestbook entry displays both the name and message |
+| C7: CSS linked and served | PASS | CSS linked in template and served from /static/style.css |
 
 ## Overall
 
-- [ ] **CLEARED** — all constraints pass. Web App topic complete.
-- [ ] **Not cleared** — constraints above marked FAIL. Reviewing [../../../resources.md](../../../resources.md), will retry.
+- [x] **CLEARED** — all constraints pass. Web App topic complete.
 
 ## Notes (optional)
 
-Anything you want to note for yourself or your reviewer — blockers, assumptions, things you learned.
+Successfully completed the Flask Guestbook web application with templates, static CSS, GET/POST routes, and in-memory storage.
