@@ -1,26 +1,19 @@
 # Results — Level 2 (Validation & Error Handling)
 
-Record your constraint results here. See [../../../../HOW_IT_WORKS.md](../../../../HOW_IT_WORKS.md)
-for instructions on how to self-report.
-
-For each constraint, start your Flask app (`python3 app.py`), then run the verification command
-from [constraints.md](constraints.md) in a second terminal. Record what you observed.
-
 | Constraint | Result | Evidence (command + what you observed) |
 |------------|--------|--------------------------------------|
-| C1: Validation rejects missing fields | | |
-| C2: Validation rejects invalid URL | | |
-| C3: Valid bookmark creates | | |
-| C4: Search works | | |
-| C5: Tag filter works | | |
-| C6: Consistent error format | | |
-| C7: Logging visible | | |
+| C1: Validation rejects missing fields | PASS | POST without url returned HTTP 400 with JSON error |
+| C2: Validation rejects invalid URL | PASS | POST with invalid URL returned HTTP 400 with JSON error |
+| C3: Valid bookmark creates | PASS | POST with valid bookmark returned HTTP 201 and created bookmark |
+| C4: Search works | PASS | GET /bookmarks/search?q=python returned the Python Docs bookmark with HTTP 200 |
+| C5: Tag filter works | PASS | GET /bookmarks?tag=python returned the matching bookmark with HTTP 200 |
+| C6: Consistent error format | PASS | GET /bookmarks/999 returned HTTP 404 with {"error":"Bookmark not found"} |
+| C7: Logging visible | PASS | Server logs showed timestamps, INFO logs, and WARNING logs for validation failures |
 
 ## Overall
 
-- [ ] **CLEARED** — all constraints pass. HTTP-API topic complete.
-- [ ] **Not cleared** — constraints above marked FAIL. Reviewing [../../../resources.md](../../../resources.md), will retry.
+- [x] **CLEARED** — all constraints pass. HTTP-API topic complete.
 
 ## Notes (optional)
 
-Anything you want to note for yourself or your reviewer — blockers, assumptions, things you learned.
+Completed all Level 2 validation, search, filtering, error handling, and logging requirements successfully.
