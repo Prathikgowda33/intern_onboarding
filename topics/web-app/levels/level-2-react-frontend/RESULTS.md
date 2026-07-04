@@ -1,26 +1,20 @@
 # Results — Level 2 (React Frontend)
 
-Record your constraint results here. See [../../../../HOW_IT_WORKS.md](../../../../HOW_IT_WORKS.md)
-for instructions on how to self-report.
-
-For each constraint, start both servers (Flask API + React), then run the verification command
-from [constraints.md](constraints.md) in a third terminal. Record what you observed.
-
 | Constraint | Result | Evidence (command + what you observed) |
 |------------|--------|--------------------------------------|
-| C1: API returns JSON | | |
-| C2: React app loads | | |
-| C3: React displays API entries | | |
-| C4: Can add entries from React | | |
-| C5: CORS configured | | |
-| C6: Multiple components | | |
-| C7: Both servers run | | |
+| C1: API returns JSON | PASS | POST created Alice entry and GET /api/entries returned JSON containing Alice and Hello from API |
+| C2: React app loads | PASS | React app loaded successfully on localhost:5173 |
+| C3: React displays API entries | PASS | React displayed Alice entry fetched from the Flask API |
+| C4: Can add entries from React | PASS | Added Bob with React test from the form; React updated immediately and Flask API contained Bob |
+| C5: CORS configured | PASS | OPTIONS request returned HTTP 200 with Access-Control-Allow-Origin for localhost:5173 |
+| C6: Multiple components | PASS | App.jsx, Guestbook.jsx, and EntryForm.jsx exist with distinct responsibilities |
+| C7: Both servers run | PASS | Flask API and React server simultaneously returned HTTP 200 |
 
 ## Overall
 
-- [ ] **CLEARED** — all constraints pass. Web App topic complete.
-- [ ] **Not cleared** — constraints above marked FAIL. Reviewing [../../../resources.md](../../../resources.md), will retry.
+- [x] **CLEARED** — all constraints pass. Web App topic complete.
+- [ ] **Not cleared** — constraints above marked FAIL.
 
 ## Notes (optional)
 
-Anything you want to note for yourself or your reviewer — blockers, assumptions, things you learned.
+Completed Web App Level 2 with Flask JSON API, CORS, Vite React frontend, fetch API integration, multiple React components, and simultaneous backend/frontend servers.
