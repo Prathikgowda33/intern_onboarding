@@ -18,7 +18,7 @@ jobs:
 
       - name: Build Docker image with commit hash
         run: |
-          docker build \
+          docker build -f topics/deployment/levels/level-2-ci-cd/Dockerfile \
             --build-arg COMMIT_HASH=${{ github.sha }} \
             -t ci-cd-app:${{ github.sha }} .
 
