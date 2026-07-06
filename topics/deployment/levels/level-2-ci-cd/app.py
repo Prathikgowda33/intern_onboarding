@@ -13,7 +13,7 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 # The Dockerfile should set COMMIT_HASH as an environment variable
-COMMIT_HASH = os.environ.get("COMMIT_HASH", "unknown")
+COMMIT_HASH = os.environ.get("COMMIT_HASH") or os.environ.get("RAILWAY_GIT_COMMIT_SHA", "unknown")
 APP_NAME = "ci-cd-app"
 
 
