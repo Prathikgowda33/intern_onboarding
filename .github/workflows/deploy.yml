@@ -20,7 +20,7 @@ jobs:
         run: |
           docker build -f topics/deployment/levels/level-2-ci-cd/Dockerfile \
             --build-arg COMMIT_HASH=${{ github.sha }} \
-            -t ci-cd-app:${{ github.sha }} .
+            -t ci-cd-app:${{ github.sha }} topics/deployment/levels/level-2-ci-cd
 
       - name: Run Docker container
         run: |
