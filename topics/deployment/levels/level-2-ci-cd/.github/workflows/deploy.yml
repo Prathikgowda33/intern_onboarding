@@ -1,0 +1,39 @@
+name: CI/CD Deployment Level 2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image with commit hash
+        run: |
+          docker build \
+            --build-arg COMMIT_HASH=${{ github.sha }} \
+            -t ci-cd-app:${{ github.sha }} .
+
+      - name: Run Docker container
+        run: |
+          docker run -d \
+            -p 5000:5000 \
+            --name ci-cd-test \
+            ci-cd-app:${{ github.sha }}
+
+      - name: Verify health endpoint
+        run: |
+          sleep 5
+          curl --fail http://localhost:5000/health
+
+      - name: Verify version endpoint
+        run: |
+          curl --fail http://localhost:5000/version
