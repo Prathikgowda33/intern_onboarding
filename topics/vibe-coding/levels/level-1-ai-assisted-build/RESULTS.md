@@ -1,34 +1,26 @@
-# Results — Level 1 (AI-Assisted Build)
+# Results – Level 1 (AI-Assisted Build)
 
-Record your constraint results here. See [../../../../HOW_IT_WORKS.md](../../../../HOW_IT_WORKS.md)
-for instructions on how to self-report.
-
-### How to fill in AI-judged constraints:
-
-| AI verdict | What to enter in Result column |
-|------------|-------------------------------|
-| Haven't reviewed yet | `PENDING` |
-| AI scored it well (4-5/5) | `PASS` |
-| AI said to revise (≤3/5) | `FAIL — revise per feedback: [summary]` |
-
-| Constraint | Type | Result | Evidence (AI's verdict + feedback, or what you observed) |
-|------------|------|--------|--------------------------------------------|
-| C1: PROMPT_LOG.md with 3+ prompts | Behavioral | | |
-| C2: VERIFICATION.md with test cases | Behavioral | | |
-| C3: md2html.py --help works | Artifact | | |
-| C4: Tool converts MD to HTML | Artifact | | |
-| C5: Tool handles edge cases | Artifact | | |
-| C6: 2+ sample files with output | Artifact | | |
-| C7: Prompts show iteration | Human-judged | | |
-| C8: Verification is thorough | Human-judged | | |
+| Constraint | Type | Result | Evidence |
+|------------|------|--------|----------|
+| C1: PROMPT_LOG.md with 3+ prompts | Behavioral | PASS | PROMPT_LOG.md contains multiple prompts showing AI-assisted development. |
+| C2: VERIFICATION.md with test cases | Behavioral | PASS | VERIFICATION.md records test cases and expected results. |
+| C3: md2html.py --help works | Artifact | PASS | python3 md2html.py --help displays usage information. |
+| C4: Tool converts MD to HTML | Artifact | PASS | sample1.md and sample2.md successfully converted to HTML. |
+| C5: Tool handles edge cases | Artifact | PASS | Missing file is handled gracefully with an error message. |
+| C6: 2+ sample files with output | Artifact | PASS | sample1.md, sample2.md and corresponding HTML outputs created. |
+| C7: Prompts show iteration | Human-judged | PASS | Prompt log demonstrates multiple iterations and improvements. |
+| C8: Verification is thorough | Human-judged | PASS | Verification covers help command, conversion, and error handling. |
 
 ## Overall
 
-- [ ] **CLEARED** — all constraints pass. Vibe Coding topic complete.
-- [ ] **Not cleared** — constraints above marked FAIL. Reviewing [../../../resources.md](../../../resources.md), will retry.
+- [x] **CLEARED** — all constraints pass. Vibe Coding topic complete.
+- [ ] **Not cleared** — constraints above marked FAIL.
 
 ## Notes (optional)
 
-AI tool used for build: _______________________________________
-AI tool used for review (C7/C8): _______________________________________
-Anything else you want to note.
+AI tool used for build: ChatGPT
+
+AI tool used for review (C7/C8): ChatGPT
+
+Anything else you want to note:
+The Markdown converter supports headings, lists, bold, italic, links, blockquotes, code blocks, horizontal rules, and generates valid HTML output.
